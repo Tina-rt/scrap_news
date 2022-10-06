@@ -5,8 +5,13 @@ from scraper import *
 
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
+
 @app.route('/')
 def index():
+    return "ok"
+
+@app.route('/api/')
+def api():
     data = get_headline_midi()
     return jsonify({
         'headlines': {
