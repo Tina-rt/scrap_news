@@ -15,7 +15,6 @@ def get_headline_midi():
         d_str = r.find('time')['datetime']
         d = datetime.strptime(d_str, "%Y-%m-%dT%H:%M:%S%z") 
         link = r.find('a')['href']
-        print(link)
         data.append(Headline(r.find('h3').get_text(), r.find('span')['data-img-url'], d, link))
     return data
 
