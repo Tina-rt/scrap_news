@@ -1,10 +1,12 @@
 import encodings
 from flask import Flask, jsonify
+from flask_cors import CORS
 from scraper import *
 
 
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
+CORS(app)
 
 @app.route('/')
 def index():
