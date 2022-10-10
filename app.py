@@ -19,8 +19,8 @@ def api():
     data = get_headline_midi()
     return jsonify({
         'headlines': {
-            'midimadagasikara': [d.toJson() for d in data],
-            'lexpress': [d.toJson() for d in get_headline_lexpress()]
+            'Midi Madagasikara': [d.toJson() for d in data],
+            'L\'expresse de Madagascar': [d.toJson() for d in get_headline_lexpress()]
             },
 
     },  )
