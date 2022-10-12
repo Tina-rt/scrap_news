@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename="css/font-awesome-4.7.0/css/font-awesome.min.css")}}">
+    <title>NWS - Mada</title>
+</head>
+
+<body>
+    <header>
+        <div class="nav">
+            <div class="ham-icon">
+                <i class="fa fa-2x fa-navicon"></i>
+            </div>
+            <div class="nav-brand">
+
+                <h1>NWS - Mada</h1>
+            </div>
+        </div>
+    </header>
+    <section>
+        <h3>Headline</h3>
+        <div class="news-list">
+            {% for news in data%}
+            <div class="card news-item" link="#1">
+                <img src="{{news.image_url}}" loading="lazy" alt="" class="card-image">
+                <div class="card-content">
+
+                    <div class="card-title">
+                        <p>{{news.title}}</p>
+                        <a href="{{news.link}}" class="more">Voir plus</a>
+
+                    </div>
+                    <div class="card-subtitle">
+                        <div class="date"> <i class="fa fa-calendar"></i> {{news.date.day}} - {{news.date.month}} - {{news.date.year    }}</div>
+                        <div class="source"> <i class="fa fa-newspaper-o"></i>{{news.source}}</div>
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </section>
+</body>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="js/update_data.js"></script>
+<script src="js/main.js"></script>
+
+</html>

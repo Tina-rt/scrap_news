@@ -1,5 +1,5 @@
 import encodings
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 from flask_cors import CORS, cross_origin
 from scraper import *
 
@@ -11,7 +11,11 @@ cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 @app.route('/')
 def index():
-    return "ok"
+    data = get_headline_midi() + get_headline_lexpress()
+    data = sorted(data, key=lambda d: d.date.timestamp(), reverse=True)
+    # data = []
+
+    return render_template('index.html', data=data)
 
 @app.route('/api/')
 @cross_origin()
@@ -25,5 +29,5 @@ def api():
 
     },  )
 
-# if __name__ == "__main__":
-#     app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)

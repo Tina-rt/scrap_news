@@ -1,11 +1,12 @@
 from datetime import datetime
 
 class Headline:
-    def __init__(self, title, image_url, date:datetime, link) -> None:
+    def __init__(self,source, title, image_url, date:datetime, link, ) -> None:
         self.title = title
         self.image_url = image_url
         self.date = date
         self.link = link
+        self.source = source
     
     def toJson(self):
         return {
