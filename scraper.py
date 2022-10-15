@@ -5,6 +5,22 @@ import dateparser
 from models import *
 from pprint import pprint as pp
 
+
+def get_details_lexpress(url):
+    re = requests.get(url)
+    bs = bs4.BeautifulSoup(re.content, "html.parser")
+    
+    header_ = bs.find('header', {'class':'entry-header'})
+    title = header_.find('h1').get_text()
+    
+    content = bs.find('div', {'class': 'entry-content'})
+    all_p = content.find_all('p')
+
+    
+    
+    print(title, "\n".join([p.get_text() for p in all_p]))
+
+
 def get_headline_midi():
     re = requests.get('https://midi-madagasikara.mg/category/a-lire/')
     bs = bs4.BeautifulSoup(re.content, "html.parser")
