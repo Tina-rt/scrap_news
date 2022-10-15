@@ -16,11 +16,13 @@ def get_details_lexpress(url):
     content = bs.find('div', {'class': 'entry-content'})
     all_p = content.find_all('p')
 
+    image_content = bs.find('div', {'class': 'herald-post'})
+    image_url = image_content.find('img')
     
-    
-    print(title, "\n".join([p.get_text() for p in all_p]))
+    # print(title, "\n".join([p.get_text() for p in all_p]))
+    print(image_url)
 
-
+# get_details_lexpress('https://lexpress.mg/15/10/2022/ukraine-madagascar-condamne-la-guerre-mais-reste-neutre/')
 def get_headline_midi():
     re = requests.get('https://midi-madagasikara.mg/category/a-lire/')
     bs = bs4.BeautifulSoup(re.content, "html.parser")
