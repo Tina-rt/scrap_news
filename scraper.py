@@ -9,20 +9,23 @@ from pprint import pprint as pp
 def get_details_lexpress(url):
     re = requests.get(url)
     bs = bs4.BeautifulSoup(re.content, "html.parser")
-    
+    print(bs)
     header_ = bs.find('header', {'class':'entry-header'})
     title = header_.find('h1').get_text()
     
     content = bs.find('div', {'class': 'entry-content'})
     all_p = content.find_all('p')
-
-    image_content = bs.find('div', {'class': 'herald-post'})
-    image_url = image_content.find('img')
+    paragraph = "\n".join([p.get_text() for p in all_p])
+    image_content = bs.find('img')
+    # image_url = image_content.find('img')
+    
+    author = bs.find('span', {'class': 'author'})
     
     # print(title, "\n".join([p.get_text() for p in all_p]))
-    print(image_url)
+    print(image_content)
 
 # get_details_lexpress('https://lexpress.mg/15/10/2022/ukraine-madagascar-condamne-la-guerre-mais-reste-neutre/')
+get_details_lexpress('https://lexpress.mg/15/10/2022/antananarivo-les-victimes-de-la-pollution-de-lair-envahissent-les-hopitaux/')
 def get_headline_midi():
     re = requests.get('https://midi-madagasikara.mg/category/a-lire/')
     bs = bs4.BeautifulSoup(re.content, "html.parser")
