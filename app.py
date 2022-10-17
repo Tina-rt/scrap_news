@@ -1,5 +1,5 @@
 import encodings
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify, render_template, request
 from flask_cors import CORS, cross_origin
 from scraper import *
 
@@ -29,5 +29,11 @@ def api():
 
     },  )
 
+@app.route('/api/detail/', methods=['GET'])
+@cross_origin()
+def api_detail():
+    url = request.args.get('url')
+    data = get_details_lexpress(url)
+    return jsonify(data)
 if __name__ == "__main__":
     app.run(debug=True)
