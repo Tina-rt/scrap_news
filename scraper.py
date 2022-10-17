@@ -25,7 +25,7 @@ def get_details_lexpress(url):
     print(image_content)
 
 # get_details_lexpress('https://lexpress.mg/15/10/2022/ukraine-madagascar-condamne-la-guerre-mais-reste-neutre/')
-get_details_lexpress('https://lexpress.mg/15/10/2022/antananarivo-les-victimes-de-la-pollution-de-lair-envahissent-les-hopitaux/')
+#get_details_lexpress('https://lexpress.mg/15/10/2022/antananarivo-les-victimes-de-la-pollution-de-lair-envahissent-les-hopitaux/')
 def get_headline_midi():
     re = requests.get('https://midi-madagasikara.mg/category/a-lire/')
     bs = bs4.BeautifulSoup(re.content, "html.parser")
