@@ -35,5 +35,4 @@ def api_detail():
     url = request.args.get('url')
     data = get_details_lexpress(url)
     return jsonify(data)
-# if __name__ == "__main__":
-#     app.run(debug=True)
+
