@@ -29,8 +29,8 @@ def api():
 
     },  )
 
-# @app.route('/api/detail/', methods=['GET'])
-# @cross_origin()
+@app.route('/api/detail/', methods=['GET'])
+@cross_origin()
 def api_detail():
     url = request.args.get('url')
     data = get_details_lexpress(url)
