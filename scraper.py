@@ -15,7 +15,7 @@ def get_details_lexpress(url):
     
     content = bs.find('div', {'class': 'entry-content'})
     all_p = content.find_all('p')
-    paragraph = "\n".join([p.get_text() for p in all_p])
+    paragraph = [p.get_text() for p in all_p]
     image_content = bs.find('img')
     # image_url = image_content.find('img')
     
