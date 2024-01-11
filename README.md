@@ -1,4 +1,5 @@
 # scrap_news
 
-##links to scrap next
-https://www.boursorama.com/bourse/actualites/
+## Endpoint
+- /api/ : Get all headlines
+- /api/detail/{{news_url}} : Get news details
